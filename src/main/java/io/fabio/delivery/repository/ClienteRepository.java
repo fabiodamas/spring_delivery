@@ -8,7 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import io.fabio.delivery.domain.Cliente;
 
-@Repository
+
+ 
+ @Repository
+//@RepositoryRestResource(collectionResourceRel = "clientes",path = "clientes")
 public interface ClienteRepository extends JpaRepository<Cliente,Long> {
 
 	Cliente findByNome(String nome);

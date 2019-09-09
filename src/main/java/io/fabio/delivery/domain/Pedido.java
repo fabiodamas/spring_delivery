@@ -35,7 +35,7 @@ public class Pedido {
 	@Min(1)
 	private Double valorTotal;
 
-	Pedido() {}
+	public Pedido() {}
 
 	public Pedido(Long id,Cliente cliente,List<Item> itens,Double valorTotal) {
 		super();
