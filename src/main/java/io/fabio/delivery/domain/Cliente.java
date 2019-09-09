@@ -2,12 +2,14 @@ package io.fabio.delivery.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -33,6 +35,9 @@ public class Cliente {
 	@Cascade(org.hibernate.annotations.CascadeType.ALL)
 	private List<Pedido> pedidos;
 
+	@ManyToOne(optional = true)
+	private Cidade cidade;		
+	
 	public Cliente(Long id,String nome,String endereco) {
 		super();
 		this.id = id;
@@ -79,9 +84,18 @@ public class Cliente {
 		
 	}
 
-	
+
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
+	}
+
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 	@Override
